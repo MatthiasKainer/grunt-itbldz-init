@@ -6,10 +6,14 @@ import language = require('./languages/create');
 import path = require('path');
 
 var join = (front, back) => {
-    return (front + (back !== ".") ? back : "").replace(/\\/g, "/");
+    if (!back || back == "-") {
+        return "";
+    }
+
+    return (front + ((back !== ".") ? back : "")).replace(/\\/g, "/");
 };
 
-var root = "<%= config.directories.root %>/";
+var root = () => "<%= config.directories.root %>/";
 
 export class Create {
     static save(file, result) {
@@ -19,7 +23,7 @@ export class Create {
     public static config(config) {
         var result: any = {
             directories: {
-                target: root + config.target._
+                target: root() + config.target._
             },
             sources: {},
             deployables: {
@@ -29,7 +33,7 @@ export class Create {
 
         var addFolderFor = (lang, what) => {
             if (!config.languages[lang][what]) return;
-            result.directories[lang][what] = join(root, config.languages[lang][what]._);
+            result.directories[lang][what] = join(root(), config.languages[lang][what]._);
         };
 
         var addFilesFor = (lang) => {
@@ -39,7 +43,7 @@ export class Create {
         if (config.languages) {
             config.languages._.forEach((lang) => {
                 result.directories[lang] = {
-                    "src": join(root, config.languages[lang].src._)
+                    "src": join(root(), config.languages[lang].src._)
                 };
 
                 addFolderFor(lang, "unit");

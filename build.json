@@ -18,6 +18,10 @@
             "unit": {
                 "task": "mochaTest",
                 "package": "grunt-mocha-test",
+                "dependencies": [
+                    "chai",
+                    "sinon"
+                ],
                 "test": {
                     "src": [
                         "<%= config.sources.TypeScript.tests.unit %>"

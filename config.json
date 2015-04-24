@@ -2,9 +2,9 @@
     "directories": {
         "target": "<%= config.directories.root %>/../target",
         "TypeScript": {
-            "src": ".",
-            "unit": "tests/unit",
-            "acceptance": "-"
+            "src": "<%= config.directories.root %>/",
+            "unit": "<%= config.directories.root %>/tests/unit",
+            "acceptance": ""
         }
     },
     "sources": {
