@@ -1,0 +1,49 @@
+{
+    "prepare": {
+        "clean": {
+            "task": "clean",
+            "package": "grunt-contrib-clean",
+            "options": {
+                "force": true
+            },
+            "target": [
+                "<%= config.directories.target %>"
+            ]
+        }
+    },
+    "compile": {
+        "typescript": {
+            "task": "ts",
+            "package": "grunt-ts",
+            "default": {
+                "options": {
+                    "module": "commonjs",
+                    "compile": true
+                },
+                "src": "<%= config.sources.TypeScript.files %>"
+            }
+        }
+    },
+    "test": {
+        "typescript": {
+            "unit": {
+                "task": "mochaTest",
+                "package": "grunt-mocha-test",
+                "test": {
+                    "src": [
+                        "<%= config.sources.TypeScript.tests.unit %>"
+                    ]
+                }
+            }
+        }
+    },
+    "create-deployable": {
+        "copy": {
+            "task": "copy",
+            "package": "grunt-contrib-copy",
+            "deployables": {
+                "files": "<%= config.deployables.files %>"
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "grunt-itbldz-init",
+  "description": "Initalization script for itbldz",
+  "version": "0.1.0",
+  "homepage": "https://github.com/MatthiasKainer/grunt-itbldz-init",
+  "author": {
+    "name": "MatthiasKainer",
+    "email": "mail@matthias-kainer.de",
+    "url": "http://matthias-kainer.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MatthiasKainer/grunt-itbldz-init.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MatthiasKainer/grunt-itbldz-init/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/MatthiasKainer/grunt-itbldz-init/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "merge": "^1.2.0"
+  }
+}

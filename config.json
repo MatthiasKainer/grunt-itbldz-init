@@ -1,0 +1,37 @@
+{
+    "directories": {
+        "target": "<%= config.directories.root %>/../target",
+        "TypeScript": {
+            "src": ".",
+            "unit": "tests/unit",
+            "acceptance": "-"
+        }
+    },
+    "sources": {
+        "TypeScript": {
+            "files": [
+                "<%= config.directories['TypeScript'].src %>/**/*.ts",
+                "!<%= config.directories['TypeScript'].src %>/node_modules/**/*.ts"
+            ],
+            "tests": {
+                "unit": [
+                    "<%= config.directories['TypeScript'].unit %>/**/*.js"
+                ]
+            }
+        }
+    },
+    "deployables": {
+        "files": [
+            {
+                "expand": true,
+                "cwd": "<%= config.directories['TypeScript'].src %>/",
+                "src": [
+                    "**/*.js",
+                    "**/*.json",
+                    "!node_modules/**/*.js"
+                ],
+                "dest": "<%= config.directories.target %>"
+            }
+        ]
+    }
+}
