@@ -212,6 +212,7 @@ class JavaScript implements Language {
             result.test.javascript["unit"] = {
                 "task": "mochaTest",
                 "package": "grunt-mocha-test",
+                "dependencies": ["chai", "sinon"],
                 "test": {
                     "src": ["<%= config.sources.JavaScript.unit %>"]
                 }
@@ -223,6 +224,7 @@ class JavaScript implements Language {
                 "task": "cucumberjs",
                 "package": "grunt-cucumber",
                 "src": "<%= config.directories.JavaScript.acceptance %>",
+                "dependencies": ["cucumber"],
                 "options": {
                     "steps": "<%= config.directories.JavaScript.acceptance %>",
                     "modulePath": "<%= config.directories.root %>/node_modules/cucumber/lib/cucumber.js"
@@ -254,6 +256,7 @@ class TypeScript implements Language {
             result.test.typescript["unit"] = {
                 "task": "mochaTest",
                 "package": "grunt-mocha-test",
+                "dependencies": ["chai", "sinon"],
                 "test": {
                     "src": ["<%= config.sources.TypeScript.tests.unit %>"]
                 }
@@ -265,6 +268,7 @@ class TypeScript implements Language {
                 "task": "cucumberjs",
                 "package": "grunt-cucumber",
                 "src": "<%= config.directories.TypeScript.acceptance %>",
+                "dependencies": ["cucumber"],
                 "options": {
                     "steps": "<%= config.directories.TypeScript.acceptance %>",
                     "modulePath": "<%= config.directories.root %>/node_modules/cucumber/lib/cucumber.js"
