@@ -21,19 +21,19 @@ export function _for(lang, config, result) {
 
     if (lang === new languages.TypeScript()._) {
         result.sources[lang] = {
-            files: [getFolderFor(lang) + "**/*.ts", "!" + getFolderFor(lang) + "node_modules/**/*.ts"],
+            files: [getFolderFor(lang) + "**/*.ts", "!" + getFolderFor(lang) + "node_modules/**/*"],
             tests: {
                 unit : [getFolderFor(lang, "unit") + "**/*.js"]
             }
         };
-        result.deployables.files.push(fileset(lang, "**/*.js", "**/*.json", "!node_modules/**/*.js"));
+        result.deployables.files.push(fileset(lang, "**/*.js", "**/*.json", "!node_modules/**/*", "readme.md"));
     }
 
     if (lang === new languages.JavaScript()._) {
         result.sources[lang] = {
             files: [getFolderFor(lang) + "**/*.js"]
         };
-        result.deployables.files.push(fileset(lang, "**/*.js", "**/*.json", "!node_modules/**/*.js"));
+        result.deployables.files.push(fileset(lang, "**/*.js", "**/*.json", "!node_modules/**/*", "readme.md"));
     }
 
     if (lang === new languages.Php()._) {

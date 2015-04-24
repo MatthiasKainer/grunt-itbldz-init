@@ -11,7 +11,7 @@
         "TypeScript": {
             "files": [
                 "<%= config.directories['TypeScript'].src %>/**/*.ts",
-                "!<%= config.directories['TypeScript'].src %>/node_modules/**/*.ts"
+                "!<%= config.directories['TypeScript'].src %>/node_modules/**/*"
             ],
             "tests": {
                 "unit": [
@@ -28,7 +28,8 @@
                 "src": [
                     "**/*.js",
                     "**/*.json",
-                    "!node_modules/**/*.js"
+                    "!node_modules/**/*",
+                    "readme.md"
                 ],
                 "dest": "<%= config.directories.target %>"
             }

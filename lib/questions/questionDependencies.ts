@@ -21,7 +21,9 @@ export class WhenSome implements DependsOn {
     public decorateQuestion(config) {
         config["when"] = (results: any[]) => {
             var id = this.target.id + "._";
-            return results[id] && results[id].some((_) => _ === this.condition);
+            var _ = results[id] || false;
+            
+            return _ && _.some((_) => _ === this.condition);
         };
         return config;
     }

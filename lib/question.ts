@@ -36,12 +36,36 @@ export class QuestionFactory {
         return languages;
     }
 
+    get publish(): QuestionTree {
+
+        var _ = new Question("deployment", "How do you want to deploy your stuff?");
+        _.asCheckbox([{ name: "git", checked: true }, { name: "npm", checked: true }, { name: "sftp", checked: true }]);
+
+        var deployment = new QuestionTree(_);
+        var git = new Question("npm", "Do you want commit/tag/push your changes to git?");
+        git.asConfirmation(true);
+
+        var npm = new QuestionTreeContainer("npm", deployment);
+        var npmBumpVersion = new Question("bump", "Do you want to bump a new package version on build?");
+        npmBumpVersion.asConfirmation(true);
+        var npmPublish = new Question("publish", "Do you want to npm publish a new version on deploy?");
+        npmPublish.asConfirmation(true);
+        npm.addFor("npm", [new QuestionTree(npmBumpVersion), new QuestionTree(npmPublish)]);
+        
+        deployment.addFor("git", [new QuestionTree(git)]);
+        deployment.addFor("npm", [<QuestionTree>npm]);
+
+        return deployment;
+    }
+
     get buildOrDeploy(): QuestionTree {
         var _ = new Question("itbldz", "What do you want to create?");
         _.asCheckbox([{ name: "build", checked: true }, { name: "deploy", checked: true }]);
 
         var build = new QuestionTree(_);
-        build.addFor("build", [this.targetDirectory, this.languages]);
+        build.add([this.targetDirectory]);
+        build.addFor("build", [this.languages]);
+        build.addFor("deploy", [this.publish]);
         return build;
     }
 }
