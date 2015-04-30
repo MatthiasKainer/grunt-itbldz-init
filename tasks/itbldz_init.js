@@ -45,7 +45,10 @@ module.exports = function (grunt) {
             }
         });
 
+        var cwd = process.cwd();
+        process.chdir(__dirname + "/..");
         grunt.loadNpmTasks('grunt-prompt');
+        process.chdir(cwd);
         grunt.task.run([ "prompt", 'store-initialized-itbldz-config']);
     });
 };
