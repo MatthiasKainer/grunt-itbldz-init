@@ -163,7 +163,7 @@ class Php implements Language {
     public Create(config, result) {
         if (config.validate._) {
             result["validate"] = result["validate"] || {};
-            result.validate["javascript"] = {
+            result.validate["php"] = {
                 "task": "phplint",
                 "package": "grunt-phplint",
                 "files": ["<%= config.sources.PHP.files %>"],
