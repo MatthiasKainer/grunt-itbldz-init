@@ -43,7 +43,7 @@ class Html implements Language {
                         files: [{
                             expand: true,
                             cwd: "<%= config.directories." + html + ".src %>",
-                            src: "<%= config.sources." + html + ".fileset.src %>",
+                            src: "<%= config.sources." + html + ".fileset %>",
                             dest: "<%= config.directories.target %>"
                         }]
                     }
