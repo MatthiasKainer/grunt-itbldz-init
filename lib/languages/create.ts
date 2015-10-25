@@ -43,7 +43,7 @@ class Html implements Language {
                         files: [{
                             expand: true,
                             cwd: "<%= config.directories." + html + ".src %>",
-                            src: "<%= config.sources." + html + ".fileset %>",
+                            src: "<%= config.sources." + html + ".files %>",
                             dest: "<%= config.directories.target %>"
                         }]
                     }
@@ -57,7 +57,7 @@ class Html implements Language {
                         files: [{
                             expand: true,
                             cwd: "<%= config.directories." + html + ".src %>",
-                            src: "<%= config.sources." + html + ".fileset.src %>",
+                            src: "<%= config.sources." + html + ".files %>",
                             dest: "<%= config.directories.target %>",
                             ext: '.html'
                         }]
@@ -72,7 +72,7 @@ class Html implements Language {
                         files: [{
                             expand: true,
                             cwd: "<%= config.directories." + html + ".src %>",
-                            src: "<%= config.sources." + html + ".fileset.src %>",
+                            src: "<%= config.sources." + html + ".files %>",
                             dest: "<%= config.directories.target %>"
                         }]
                     }
