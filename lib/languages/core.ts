@@ -77,7 +77,7 @@ export class Html {
     public questions(parent): questions.QuestionTree {
         var container = new questions.QuestionTreeContainer(this._, parent);
 
-        var _ = new questions.Question("compile", Utils.lang(this._) + "What type of markup files do you have?");
+        var _ = new questions.Question("compile", Utils.lang(this._) + "What type of markup files do you want to transpile on build time?");
         _.asList([{ name: "none", checked: true }, { name: "markdown", checked: false }, { name: "jade", checked: false }, { name: "handlebars", checked: false }]);
         container.addFor(this._, [Utils.src(this._), new questions.QuestionTree(_)]);
         return container;
@@ -90,7 +90,7 @@ export class StyleSheets {
     public questions(parent): questions.QuestionTree {
         var container = new questions.QuestionTreeContainer(this._, parent);
 
-        var _ = new questions.Question("compile", Utils.lang(this._) + "What type of styles do you have?");
+        var _ = new questions.Question("compile", Utils.lang(this._) + "What type of styles do you want to transpile on build time?");
         _.asList([{ name: "none", checked: true }, { name: "LESS", checked: false }, { name: "Sass", checked: false }, { name: "SCSS", checked: false }, { name: "stylus", checked: false }]);
         container.addFor(this._, [Utils.src(this._), new questions.QuestionTree(_)]);
         return container;
